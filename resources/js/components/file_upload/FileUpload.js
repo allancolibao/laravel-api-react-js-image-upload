@@ -10,7 +10,6 @@ import Album from '../album/Album';
 import { withStyles } from '@material-ui/core/styles';
 import { amber } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
-import PublishIcon from '@material-ui/icons/Publish';
 import { withSnackbar } from 'notistack';
 
 class FileUploadComponent extends Component
@@ -21,8 +20,7 @@ class FileUploadComponent extends Component
             title: '',
             description: '',
             image: '',
-            images:[],
-            show: false
+            images:[]
         }
         this.onFormSubmit = this.onFormSubmit.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -112,7 +110,8 @@ class FileUploadComponent extends Component
       }
     render()
     {
-      const { images, show } = this.state;
+      const { images } = this.state;
+      const { show } = this.props;
 
       const ColorButton = withStyles(theme => ({
         root: {
@@ -137,15 +136,6 @@ class FileUploadComponent extends Component
 
       return(
         <Grid container spacing={4}>
-          <Grid item xs={12}>
-           <Container maxWidth="md">
-              <Button onClick={() => this.setState({ show: !show })}>
-                <AvatarColor >
-                  <PublishIcon />
-                </AvatarColor>
-              </Button>
-            </Container>
-          </Grid>
           <Grid item xs={12}>
             <Container maxWidth="xs">
                 <CssBaseline />

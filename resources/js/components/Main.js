@@ -7,10 +7,25 @@ import Container from '@material-ui/core/Container';
 import { SnackbarProvider } from 'notistack';
 
 class Main extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state ={ 
+            show: false
+        }
+        this.showForm = this.showForm.bind(this)
+      }
+
+      showForm(event) {
+        this.setState(prevState => ({
+            show: !prevState.show
+          }));
+      }
+
     render() { 
         return ( 
             <React.Fragment>
-                <Navbar />
+                <Navbar showForm={this.showForm} />
                 <Container  maxWidth="xl">
                     <SnackbarProvider 
                     maxSnack={3} 
@@ -18,7 +33,7 @@ class Main extends Component {
                         vertical: 'top',
                         horizontal: 'right',
                     }}>
-                        <FileUploadComponent />
+                        <FileUploadComponent show={this.state.show} />
                     </SnackbarProvider>
                 </Container>
                 <Footer />
