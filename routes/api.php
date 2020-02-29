@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Image as ImageResource;
+use App\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/images', function () {
+    $images = ImageResource::collection(Image::all());
+
+    return response()->json($images);
+});
+
+Route::post('/fileupload', 'FileuploadController@upload');
+Route::post('/edit/{id}', 'FileuploadController@update');
