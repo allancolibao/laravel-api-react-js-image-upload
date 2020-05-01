@@ -1,5 +1,5 @@
 ## About this application
-Upload your photos, view ,and edit description with Laravel(API), Reactjs, and Material Ui. 
+Upload, view and edit description of your photos.
 
 
 ## Here the few easy steps
@@ -28,6 +28,6 @@ Upload your photos, view ,and edit description with Laravel(API), Reactjs, and M
 
 Thank you!
 
-@arcdev2019
+@arcdev
 
 See [My Portfolio](https://arcdev.me).
